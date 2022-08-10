@@ -55,7 +55,7 @@ class Settlement extends Model
             ->get();
         return $municipalities;*/
 
-        $municipalities = DB::select( DB::raw("select distinct settlements.zip_code, IF(cities.key=0, '',cities.name) as city, municipalities.key as municipality_code, municipalities.name as municipality, entities.key as entity_code, entities.name as federal_entity
+        $municipalities = DB::select( DB::raw("select distinct settlements.zip_code, cities.name as city, municipalities.key as municipality_code, municipalities.name as municipality, entities.key as entity_code, entities.name as federal_entity
         from settlements inner join municipalities on settlements.municipality = municipalities.key and settlements.entity = municipalities.federal_entity 
         inner join cities on cities.municipality = municipalities.key and cities.entity = municipalities.federal_entity 
         inner join entities on  municipalities.federal_entity = entities.key where settlements.zip_code = :zip_code limit 1"), array(
