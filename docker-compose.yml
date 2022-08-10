@@ -28,11 +28,13 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "1480:80"
-      - "14443:443"
+      - "80:80"
+      - "443:443"
     volumes:
     - ./:/var/www/zip_codes
     - ./nginx/conf.d/:/etc/nginx/conf.d/
+    - ./ssl/squid_solutions.crt:/etc/ssl/squid_solutions.crt
+    - ./ssl/squid_solutions.key:/etc/ssl/squid_solutions.key
     networks:
       - squid-solutions
     depends_on:
