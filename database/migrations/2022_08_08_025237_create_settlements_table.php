@@ -20,7 +20,7 @@ class CreateSettlementsTable extends Migration
             $table->string('name', 200);
             $table->integer('zip_code')->unsigned();
             $table->integer('type')->unsigned();
-            $table->enum('zone', ['Rural', 'Urbano']);
+            $table->enum('zone', ['Rural', 'Urbano', 'Semiurbano']);
             $table->integer('city')->unsigned()->nullable();
             $table->integer('entity')->unsigned()->nullable();
             $table->integer('municipality')->unsigned();
