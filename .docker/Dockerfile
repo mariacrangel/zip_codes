@@ -1,7 +1,5 @@
 FROM php:7.4-fpm
 
-USER root
-
 ENV PHP_OPENSSL=yes
 
 # Copy composer.lock and composer.json
